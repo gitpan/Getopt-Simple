@@ -15,6 +15,7 @@ package Getopt::Simple;
 #	1.10	13-Oct-97	Add arrays of switches (eg '=s@').
 #	1.20	 3-Dec-97	Add 'Help' on a per-switch basis.
 #	1.30	11-Dec-97	Change 'Help' to 'verbose'. Make all hash keys lowercase.
+#	1.40	10-Nov-98	Change width of help report. Restructure tests.
 # --------------------------------------------------------------------------
 
 use strict;
@@ -32,8 +33,8 @@ use Getopt::Long;
 
 # --------------------------------------------------------------------------
 
-$fieldWidth	= 15;
-$VERSION	= '1.30';
+$fieldWidth	= 25;
+$VERSION	= '1.40';
 
 # --------------------------------------------------------------------------
 
@@ -130,7 +131,7 @@ sub helpOptions
 	print "$self->{'helpText'}\n" if ($self -> {'helpText'});
 
 	print 'Option', ' ' x ($fieldWidth - length('Option') ),
-		'Env', ' ' x ($fieldWidth - length('env') ),
+		'Environment var', ' ' x ($fieldWidth - length('Environment var') ),
 		"Default\n";
 
 	for (sort byOrder keys(%{$self -> {'default'} }) )

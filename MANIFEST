@@ -2,4 +2,5 @@ MANIFEST
 MANIFEST.SKIP
 Makefile.PL
 Simple.pm
-testSimple.pl
+test.pl
+t/base.t

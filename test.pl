@@ -1,7 +1,7 @@
 #!/usr/gnu/bin/perl -w
 #
 # Name:
-#	testSimple.pl.
+#	test.pl.
 #
 # Purpose:
 #	To test Getopt::Simple.

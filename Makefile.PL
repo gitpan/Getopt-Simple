@@ -18,7 +18,6 @@ WriteMakefile
 'PM'				=>
 	{
 	'Simple.pm' 	=> '$(INST_LIBDIR)/Simple.pm',
-	'testSimple.pl'	=> '$(INST_LIBDIR)/testSimple.pl'
 	},
 'VERSION_FROM'		=> 'Simple.pm'
 );
