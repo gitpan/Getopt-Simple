@@ -10,8 +10,16 @@ package Getopt::Simple;
 #	4 spaces || die.
 #
 # Author:
-#	Ron Savage	rpsavage@ozemail.com.au.
-# --------------------------------------------------------------------------
+#	Ron Savage <ron@savage.net.au>
+#	Home page: http://savage.net.au/index.html
+#
+# Licence:
+#	Australian copyright (c) 1999-2002 Ron Savage.
+#
+#	All Programs of mine are 'OSI Certified Open Source Software';
+#	you can redistribute them and/or modify them under the terms of
+#	The Artistic License, a copy of which is available at:
+#	http://www.opensource.org/licenses/index.html
 
 use strict;
 no strict 'refs';
@@ -32,7 +40,7 @@ require Exporter;
 @EXPORT_OK	= qw($switch);	# An alias for $self -> {'switch'}.
 
 $fieldWidth	= 25;
-$VERSION	= '1.43';
+$VERSION	= '1.45';
 
 # Preloaded methods go here.
 # --------------------------------------------------------------------------
@@ -397,9 +405,13 @@ C<getOptions()> returns 0 for failure and 1 for success
 
 =head1 AUTHOR
 
-C<Getopt::Simple> was written by Ron Savage I<E<lt>rpsavage@ozemail.com.auE<gt>> in 1997.
+C<Getopt::Simple> was written by Ron Savage I<E<lt>ron@savage.net.auE<gt>> in 1997.
 
 =head1 LICENCE
 
-This program is free software; you can redistribute it and/or modify it under
-the same terms as Perl itself.
+Australian copyright (c) 1997-2002 Ron Savage.
+
+	All Programs of mine are 'OSI Certified Open Source Software';
+	you can redistribute them and/or modify them under the terms of
+	The Artistic License, a copy of which is available at:
+	http://www.opensource.org/licenses/index.html

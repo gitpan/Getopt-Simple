@@ -12,11 +12,22 @@
 # Tabs:
 #	4 spaces || die.
 #
+# Version:
+#	1.00 20-Aug-97
+#
 # Author:
-#	Ron Savage	20-Aug-97	rpsavage@ozemail.com.au.
+#	Ron Savage <ron@savage.net.au>
+#	Home page: http://savage.net.au/index.html
+#
+# Licence:
+#	Australian copyright (c) 1999-2002 Ron Savage.
+#
+#	All Programs of mine are 'OSI Certified Open Source Software';
+#	you can redistribute them and/or modify them under the terms of
+#	The Artistic License, a copy of which is available at:
+#	http://www.opensource.org/licenses/index.html
 # --------------------------------------------------------------------------
 
-use integer;
 use strict;
 no strict 'refs';
 
@@ -71,7 +82,7 @@ sub init
 		{
 		'type'		=> '=s',
 		'env'		=> '$HOST',
-		'default'	=> $ENV{'HOST'} || '123.321.123.321',
+		'default'	=> $ENV{'HOST'} || '127.0.0.1',
 		'order'		=> 6,
 		},
 	'home' =>

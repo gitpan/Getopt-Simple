@@ -1,5 +1,14 @@
 Revision history for Perl extension Getopt::Simple.
 
+1.45  Sun May 12 13:12:11 2002
+	- Clean up licence and email stuff in all modules, scripts and other docs.
+		Upgrading is not necessary
+
+1.44  4-Oct-99
+--------------
+o Change my email address
+o Make a *.zip compatible with PPM
+
 1.43 26-May-99
 --------------
 o Ensure POD survives buggy pod2man
@@ -9,7 +18,7 @@ o Ship Readme.txt, output by pod2text
 --------------
 o Add stuff required to generate valid PPM files to Makefile.PL
 o Test using makePPD.bat and patchPPD.pl
-o See http://www.ozemail.com.au/~rpsavage/Perl for these 2
+o See http://savage.net.au/Perl.html for these 2
 
 1.41 30-May-99
 --------------
