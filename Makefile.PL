@@ -4,6 +4,11 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile
 (
+	($] ge '5.005') ?
+	(
+		'AUTHOR' => 'Ron Savage (rpsavage@ozemail.com.au)',
+		'ABSTRACT' => 'A simple-to-use interface to Getopt::Long',
+    ) : (),
 'clean'				=>
 	{
 	'FILES'			=> 'blib/* Makefile MANIFEST Getopt-Simple-*'

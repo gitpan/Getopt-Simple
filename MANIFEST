@@ -1,7 +1,8 @@
 Changes.txt
+Makefile.PL
 MANIFEST
 MANIFEST.SKIP
-Makefile.PL
+Readme.txt
 Simple.pm
 test.pl
 t/base.t

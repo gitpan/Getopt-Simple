@@ -1,7 +1,37 @@
 Revision history for Perl extension Getopt::Simple.
 
-1.41  Tue Mar 30 14:56:03 1999
-	- original version; created by h2xs 1.18
+1.43 26-May-99
+--------------
+o Ensure POD survives buggy pod2man
+o Ship Readme.txt, output by pod2text
 
-Use h2xs to generate the skeleton for Simple.pm.
+1.42 15-Apr-99
+--------------
+o Add stuff required to generate valid PPM files to Makefile.PL
+o Test using makePPD.bat and patchPPD.pl
+o See http://www.ozemail.com.au/~rpsavage/Perl for these 2
+
+1.41 30-May-99
+--------------
+o Recreated by h2xs 1.18
+
+1.40 10-Nov-98
+--------------
+o Change width of help report. Restructure tests.
+
+1.30 11-Dec-97
+--------------
+o Change 'Help' to 'verbose'. Make all hash keys lowercase.
+
+1.20 3-Dec-97
+-------------
+o Add 'Help' on a per-switch basis.
+
+1.10 13-Oct-97
+--------------
+o Add arrays of switches (eg '=s@').
+
+1.00 19-Aug-97
+--------------
+o Initial version.
 

@@ -11,11 +11,6 @@ package Getopt::Simple;
 #
 # Author:
 #	Ron Savage	rpsavage@ozemail.com.au.
-#	1.00	19-Aug-97	Initial version.
-#	1.10	13-Oct-97	Add arrays of switches (eg '=s@').
-#	1.20	 3-Dec-97	Add 'Help' on a per-switch basis.
-#	1.30	11-Dec-97	Change 'Help' to 'verbose'. Make all hash keys lowercase.
-#	1.40	10-Nov-98	Change width of help report. Restructure tests.
 # --------------------------------------------------------------------------
 
 use strict;
@@ -37,7 +32,7 @@ require Exporter;
 @EXPORT_OK	= qw($switch);	# An alias for $self -> {'switch'}.
 
 $fieldWidth	= 25;
-$VERSION	= '1.41';
+$VERSION	= '1.43';
 
 # Preloaded methods go here.
 # --------------------------------------------------------------------------
@@ -174,6 +169,7 @@ sub helpOptions
 sub new
 {
 	my($class)				= @_;
+	$class					= ref($class) || $class;
 	my($self)				= {};
 	$self -> {'default'}	= {};
 	$self -> {'helpText'}	= '';
@@ -318,6 +314,32 @@ C<dumpOptions()> prints all your option's keys and their current values.
 =head1 The C<helpOptions()> function
 
 C<helpOptions()> prints nicely formatted help text.
+
+=head1 INSTALLATION
+
+You install C<Getopt::Simple>, as you would install any perl module library,
+by running these commands:
+
+	perl Makefile.PL
+	make
+	make test
+	make install
+
+If you want to install a private copy of C<Getopt::Simple> in your home
+directory, then you should try to produce the initial Makefile with
+something like this command:
+
+	perl Makefile.PL LIB=~/perl
+		or
+	perl Makefile.PL LIB=C:/Perl/Site/Lib
+
+If, like me, you don't have permission to write man pages into unix system
+directories, use:
+
+	make pure_install
+
+instead of make install. This option is secreted in the middle of p 414 of the
+second edition of the dromedary book.
 
 =head1 WARNING re Perl bug
 
