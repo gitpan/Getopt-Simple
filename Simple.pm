@@ -20,22 +20,26 @@ package Getopt::Simple;
 
 use strict;
 no strict 'refs';
+use vars qw($fieldWidth $switch $VERSION @ISA @EXPORT @EXPORT_OK);
 
-use vars qw(@EXPORT @EXPORT_OK @ISA);
-use vars qw($fieldWidth $switch $VERSION);
-
-use Exporter();
 use Getopt::Long;
 
-@ISA		= qw(Exporter);
+require Exporter;
+
+@ISA = qw(Exporter);
+
+# Items to export into callers namespace by default. Note: do not export
+# names by default without a very good reason. Use EXPORT_OK instead.
+# Do not simply export all your public functions/methods/constants.
+
 @EXPORT		= qw();
+
 @EXPORT_OK	= qw($switch);	# An alias for $self -> {'switch'}.
 
-# --------------------------------------------------------------------------
-
 $fieldWidth	= 25;
-$VERSION	= '1.40';
+$VERSION	= '1.41';
 
+# Preloaded methods go here.
 # --------------------------------------------------------------------------
 
 sub byOrder
@@ -182,6 +186,8 @@ sub new
 }	# End of new.
 
 # --------------------------------------------------------------------------
+
+# Autoload methods go after =cut, and are processed by the autosplit program.
 
 1;
 

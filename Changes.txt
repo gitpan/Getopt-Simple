@@ -1,0 +1,7 @@
+Revision history for Perl extension Getopt::Simple.
+
+1.41  Tue Mar 30 14:56:03 1999
+	- original version; created by h2xs 1.18
+
+Use h2xs to generate the skeleton for Simple.pm.
+
