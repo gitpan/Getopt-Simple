@@ -1,8 +1,11 @@
+Build.PL
 Changes.txt
+lib/Getopt/Simple.pm
 Makefile.PL
-Simple.pm
-test.pl
-Simple.html
-MANIFEST
+MANIFEST			This list of files
+MANIFEST.SKIP
+META.yml
 README
-t/base.t
+t/pod.t
+t/test.t
+test.pl

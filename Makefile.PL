@@ -1,4 +1,5 @@
 use ExtUtils::MakeMaker;
+
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 
@@ -9,21 +10,23 @@ WriteMakefile
 		'AUTHOR' => 'Ron Savage (ron@savage.net.au)',
 		'ABSTRACT' => 'A simple-to-use interface to Getopt::Long',
     ) : (),
-'clean'				=>
+	clean			=>
 	{
-	'FILES'			=> 'blib/* Makefile MANIFEST Getopt-Simple-*'
+		FILES		=> 'blib/* Makefile MANIFEST Getopt-Simple-*'
 	},
-'dist'				=>
+	dist			=>
 	{
-	'COMPRESS'		=> 'gzip',
-	'SUFFIX'		=> 'gz'
+		COMPRESS	=> 'gzip',
+		SUFFIX		=> 'gz'
 	},
-'DISTNAME'			=> 'Getopt-Simple',
-'NAME'				=> 'Getopt::Simple',
-'PM'				=>
+	DISTNAME		=> 'Getopt-Simple',
+	NAME			=> 'Getopt::Simple',
+	PL_FILES		=> {},
+	PREREQ_PM		=>
 	{
-	'Simple.pm' 	=> '$(INST_LIBDIR)/Simple.pm',
+		Getopt::Long	=> 0,
+		Test::More		=> 0,
+		Test::Pod		=> 0,
 	},
-'PREREQ_PM'			=> {},
-'VERSION_FROM'		=> 'Simple.pm'
+	VERSION_FROM	=> 'lib/Getopt/Simple.pm'
 );

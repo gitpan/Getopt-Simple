@@ -29,7 +29,7 @@
 # --------------------------------------------------------------------------
 
 use strict;
-no strict 'refs';
+#no strict 'refs';
 
 use Getopt::Simple qw($switch);
 
@@ -41,76 +41,76 @@ sub init
 {
 	my($default) =
 	{
-	'help' =>
+	help =>
 		{
-		'type'		=> '',
-		'env'		=> '-',
-		'default'	=> '',
-		'order'		=> 1,
+		type	=> '',
+		env		=> '-',
+		default	=> '',
+		order	=> 1,
 		},
-	'quiet' =>
+	quiet =>
 		{
-		'type'		=> '',
-		'env'		=> '-',
-		'default'	=> '',
-		'order'		=> 2,
+		type	=> '',
+		env		=> '-',
+		default	=> '',
+		order	=> 2,
 		},
-	'username' =>
+	username =>
 		{
-		'type'		=> '=s',
-		'env'		=> '$USER',
-		'default'	=> $ENV{'USER'} || 'RonSavage',
-		'verbose'	=> 'Specify the username on the remote machine',
-		'order'		=> 3,
+		type	=> '=s',
+		env		=> '$USER',
+		default	=> $ENV{'USER'} || 'RonSavage',
+		verbose	=> 'Specify the username on the remote machine',
+		order	=> 3,
 		},
-	'password' =>
+	password =>
 		{
-		'type'		=> '=s',
-		'env'		=> '-',
-		'default'	=> 'password',
-		'verbose'	=> 'Specify the password on the remote machine',
-		'order'		=> 4,
+		type	=> '=s',
+		env		=> '-',
+		default	=> 'password',
+		verbose	=> 'Specify the password on the remote machine',
+		order	=> 4,
 		},
-	'remoteIP' =>
+	remoteIP =>
 		{
-		'type'		=> '=s',
-		'env'		=> '$REMOTEHOST',
-		'default'	=> $ENV{'REMOTEHOST'} || 'UnixBox',
-		'order'		=> 5,
+		type	=> '=s',
+		env		=> '$REMOTEHOST',
+		default	=> $ENV{'REMOTEHOST'} || 'UnixBox',
+		order	=> 5,
 		},
-	'localIP' =>
+	localIP =>
 		{
-		'type'		=> '=s',
-		'env'		=> '$HOST',
-		'default'	=> $ENV{'HOST'} || '127.0.0.1',
-		'order'		=> 6,
+		type	=> '=s',
+		env		=> '$HOST',
+		default	=> $ENV{'HOST'} || '127.0.0.1',
+		order	=> 6,
 		},
-	'home' =>
+	home =>
 		{
-		'type'		=> '=s',
-		'env',		=> '$HOME',
-		'default'	=> $ENV{'HOME'} || 'C:',
-		'verbose'	=> 'Specify the home directory on the local machine',
-		'order'		=> 7,
+		type	=> '=s',
+		env		=> '$HOME',
+		default	=> $ENV{'HOME'} || 'C:',
+		verbose	=> 'Specify the home directory on the local machine',
+		order	=> 7,
 		},
-	'remoteHome' =>
+	remoteHome =>
 		{
-		'type'		=> '=s',
-		'env',		=> '-',
-		'default'	=> '/users/home/dir',
-		'verbose'	=> 'Specify the home directory on the remote machine',
-		'order'		=> 8,
+		type	=> '=s',
+		env		=> '-',
+		default	=> '/users/home/dir',
+		verbose	=> 'Specify the home directory on the remote machine',
+		order	=> 8,
 		},
-	'ara' =>
+	ara =>
 		{
-		'type'		=> '=s@',
-		'env',		=> '-',
-		'default'	=> [qw/X Y Z/],
-		'order'		=> 9,
+		type	=> '=s@',
+		env		=> '-',
+		default	=> [qw/X Y Z/],
+		order	=> 9,
 		},
 	};
 
-	$option = new Getopt::Simple;
+	$option = Getopt::Simple -> new();
 
 	if (! $option -> getOptions($default, "Usage: testSimple.pl [options]") )
 	{

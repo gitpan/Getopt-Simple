@@ -1,5 +1,11 @@
 Revision history for Perl extension Getopt::Simple.
 
+1.47  Tue Jul 20 20:43:00 2004
+	- Change Makefile.PL to coexist with Module::Build
+	- Document parameters properly
+	- Test against Getopt::Long V 2.34
+	- Add t/pod.t to test all PODs
+
 1.46  Sun Mar 23 11:29:00 2003
 	- No source code changes in this version
 	- Patch to stop shipping blib/ directory in Unix distros, because the
