@@ -40,7 +40,7 @@ require Exporter;
 @EXPORT_OK	= qw($switch);	# An alias for $$self{'switch'}.
 
 $fieldWidth	= 25;
-$VERSION	= '1.47';
+$VERSION	= '1.48';
 
 # Preloaded methods go here.
 # --------------------------------------------------------------------------
@@ -58,18 +58,17 @@ sub dumpOptions
 {
 	my($self) = @_;
 
-	print 'Option', ' ' x ($fieldWidth - length('Option') ), "Value\n";
+	print $self -> pad('Option'), "Value\n";
 
 	for (sort byOrder keys(%{$$self{'switch'} }) )
 	{
 		if (ref($$self{'switch'}{$_}) eq 'ARRAY')
 		{
-			print "-$_", ' ' x ($fieldWidth - (1 + length) );
-			print '(', join(', ', @{$$self{'switch'}{$_} }), ")\n";
+			print $self -> pad("-$_"), '(', join(', ', @{$$self{'switch'}{$_} }), ")\n";
 		}
 		else
 		{
-			print "-$_", ' ' x ($fieldWidth - (1 + length) ), "$$self{'switch'}{$_}\n";
+			print $self -> pad("-$_"), "$$self{'switch'}{$_}\n";
 		}
 	}
 
@@ -131,15 +130,11 @@ sub helpOptions
 
 	print "$$self{'helpText'}\n" if ($$self{'helpText'});
 
-	print 'Option', ' ' x ($fieldWidth - length('Option') ),
-		'Environment var', ' ' x ($fieldWidth - length('Environment var') ),
-		"Default\n";
+	print $self -> pad('Option'), $self -> pad('Environment var'), "Default\n";
 
 	for (sort byOrder keys(%{$$self{'default'} }) )
 	{
-		print "-$_", ' ' x ($fieldWidth - (1 + length) ),
-			"$$self{'default'}{$_}{'env'}",
-			' ' x ($fieldWidth - length($$self{'default'}{$_}{'env'}) );
+		print $self -> pad("-$_"), $self -> pad("$$self{'default'}{$_}{'env'}");
 
 		if (ref($$self{'default'}{$_}{'default'}) eq 'ARRAY')
 		{
@@ -176,6 +171,15 @@ sub new
 
 }	# End of new.
 
+# --------------------------------------------------------------------------
+
+sub pad
+{
+	my($self, $field) = @_;
+
+	sprintf "%-${fieldWidth}s", $field;
+
+}	# End of pad.
 # --------------------------------------------------------------------------
 
 # Autoload methods go after =cut, and are processed by the autosplit program.

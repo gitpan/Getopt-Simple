@@ -1,5 +1,10 @@
 Revision history for Perl extension Getopt::Simple.
 
+1.48  Sun Nov 07 14:30:00 2004
+	- Add sub pad() to simplify printing of fixed width fields.
+		Original patch: Ricardo Signes.
+		Since this is the only change, there is no need to upgrade
+
 1.47  Tue Jul 20 20:43:00 2004
 	- Change Makefile.PL to coexist with Module::Build
 	- Document parameters properly

@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: Getopt-Simple
-version: 1.47
+version: 1.48
 author:
   - Ron Savage <ron@savage.net.au>
 abstract: Provide a simple wrapper around Getopt::Long.
@@ -10,5 +10,8 @@ requires:
 build_requires:
   Test::More: 0
   Test::Pod: 0
-provides: {}
-generated_by: Module::Build version 0.24
+provides:
+  Getopt::Simple:
+    file: lib/Getopt/Simple.pm
+    version: 1.48
+generated_by: Module::Build version 0.2602
