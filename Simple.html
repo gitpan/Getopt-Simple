@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>C&lt;Getopt::Simple&gt; - Provide a simple wrapper around Getopt::Long.</title>
+<link rev="made" href="mailto:" />
+</head>
+
+<body style="background-color: white">
+
+<p><a name="__index__"></a></p>
+<!-- INDEX BEGIN -->
+
+<ul>
+
+	<li><a href="#name">NAME</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#description">DESCRIPTION</a></li>
+	<li><a href="#the_getoptions()_function">The <code>getOptions()</code> function</a></li>
+	<li><a href="#the_$classref_>_{'switch'}_hash_reference">The $classRef -&gt; {'switch'} hash reference</a></li>
+	<li><a href="#the_$switch_hash_reference">The $switch hash reference</a></li>
+	<li><a href="#the_dumpoptions()_function">The <code>dumpOptions()</code> function</a></li>
+	<li><a href="#the_helpoptions()_function">The <code>helpOptions()</code> function</a></li>
+	<li><a href="#installation">INSTALLATION</a></li>
+	<li><a href="#warning_re_perl_bug">WARNING re Perl bug</a></li>
+	<li><a href="#required_modules">REQUIRED MODULES</a></li>
+	<li><a href="#return_values">RETURN VALUES</a></li>
+	<li><a href="#author">AUTHOR</a></li>
+	<li><a href="#licence">LICENCE</a></li>
+</ul>
+<!-- INDEX END -->
+
+<hr />
+<p>
+</p>
+<h1><a name="name">NAME</a></h1>
+<p><code>Getopt::Simple</code> - Provide a simple wrapper around Getopt::Long.</p>
+<p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<pre>
+        use Getopt::Simple;</pre>
+<pre>
+        # Or ...
+        # use Getopt::Simple qw($switch);</pre>
+<pre>
+        my($options) =
+        {
+        'help' =&gt;
+                {
+                'type'          =&gt; '',
+                'env'           =&gt; '-',
+                'default'       =&gt; '',
+#               'verbose'       =&gt; '',  # Not needed on every key.
+                'order'         =&gt; 1,
+                },
+        'username' =&gt;
+                {
+                'type'          =&gt; '=s',                        # As per Getopt::Long.
+                'env'           =&gt; '$USER',                     # Help text.
+                'default'       =&gt; $ENV{'USER'} || 'RonSavage', # In case $USER is undef.
+                'verbose'       =&gt; 'Specify the username on the remote machine',
+                'order'         =&gt; 3,                           # Help text sort order.
+                },
+        'password' =&gt;
+                {
+                'type'          =&gt; '=s',
+                'env'           =&gt; '-',
+                'default'       =&gt; 'password',
+                'verbose'       =&gt; 'Specify the password on the remote machine',
+                'order'         =&gt; 4,
+                },
+        };</pre>
+<pre>
+        my($option) = new Getopt::Simple;</pre>
+<pre>
+        if (! $option -&gt; getOptions($options, &quot;Usage: testSimple.pl [options]&quot;) )
+        {
+                exit(-1);       # Failure.
+        }</pre>
+<pre>
+        print &quot;username: $option-&gt;{'switch'}{'username'}. \n&quot;;
+        print &quot;password: $option-&gt;{'switch'}{'password'}. \n&quot;;</pre>
+<pre>
+        # Or, after 'use Getopt::Simple qw($switch);' ...
+        # print &quot;username: $switch-&gt;{'username'}. \n&quot;;
+        # print &quot;password: $switch-&gt;{'password'}. \n&quot;;</pre>
+<p>
+</p>
+<hr />
+<h1><a name="description">DESCRIPTION</a></h1>
+<p>The <code>Getopt::Simple</code> module provides a simple way of specifying:</p>
+<ul>
+<li></li>
+Command line switches
+<p></p>
+<li></li>
+Type information for switch values
+<p></p>
+<li></li>
+Default values for the switches
+<p></p>
+<li></li>
+Help text per switch
+<p></p></ul>
+<p>
+</p>
+<hr />
+<h1><a name="the_getoptions()_function">The <code>getOptions()</code> function</a></h1>
+<p>The <code>getOptions()</code> function takes 4 parameters:</p>
+<ul>
+<li></li>
+A hash defining the command line switches
+<p></p>
+<li></li>
+A string to display as a help text heading
+<p></p>
+<li></li>
+A Boolean. 0 = (Default) Use case-sensitive switch names. 1 = Ignore case
+<p></p>
+<li></li>
+A Boolean. 0 = Return after displaying help. 1 = (Default) Terminate with <code>exit(0)</code>
+after displaying help
+<p></p></ul>
+<p>
+</p>
+<hr />
+<h1><a name="the_$classref_>_{'switch'}_hash_reference">The $classRef -&gt; {'switch'} hash reference</a></h1>
+<p>Command line option values are accessed in your code by dereferencing
+the hash reference $classRef -&gt; {'switch'}. Two examples are given above,
+under synopsis.</p>
+<p>Alternately, you can use the hash reference $switch. See below.</p>
+<p>
+</p>
+<hr />
+<h1><a name="the_$switch_hash_reference">The $switch hash reference</a></h1>
+<p>Command line option values are accessed in your code by dereferencing
+the hash reference $switch. Two examples are given above,
+under synopsis.</p>
+<p>Alternately, you can use the hash reference $classRef -&gt; {'switch'}. See above.</p>
+<p>
+</p>
+<hr />
+<h1><a name="the_dumpoptions()_function">The <code>dumpOptions()</code> function</a></h1>
+<p><code>dumpOptions()</code> prints all your option's keys and their current values.</p>
+<p>
+</p>
+<hr />
+<h1><a name="the_helpoptions()_function">The <code>helpOptions()</code> function</a></h1>
+<p><code>helpOptions()</code> prints nicely formatted help text.</p>
+<p>
+</p>
+<hr />
+<h1><a name="installation">INSTALLATION</a></h1>
+<p>You install <code>Getopt::Simple</code>, as you would install any perl module library,
+by running these commands:</p>
+<pre>
+        perl Makefile.PL
+        make
+        make test
+        make install</pre>
+<p>If you want to install a private copy of <code>Getopt::Simple</code> in your home
+directory, then you should try to produce the initial Makefile with
+something like this command:</p>
+<pre>
+        perl Makefile.PL LIB=~/perl
+                or
+        perl Makefile.PL LIB=C:/Perl/Site/Lib</pre>
+<p>If, like me, you don't have permission to write man pages into unix system
+directories, use:</p>
+<pre>
+        make pure_install</pre>
+<p>instead of make install. This option is secreted in the middle of p 414 of the
+second edition of the dromedary book.</p>
+<p>
+</p>
+<hr />
+<h1><a name="warning_re_perl_bug">WARNING re Perl bug</a></h1>
+<p>As always, be aware that these 2 lines mean the same thing, sometimes:</p>
+<ul>
+<li></li>
+$self -&gt; {'thing'}
+<p></p>
+<li></li>
+$self-&gt;{'thing'}
+<p></p></ul>
+<p>The problem is the spaces around the -&gt;. Inside double quotes, ``...'', the
+first space stops the dereference taking place. Outside double quotes the
+scanner correctly associates the $self token with the {'thing'} token.</p>
+<p>I regard this as a bug.</p>
+<p>
+</p>
+<hr />
+<h1><a name="required_modules">REQUIRED MODULES</a></h1>
+<ul>
+<li></li>
+Exporter
+<p></p>
+<li></li>
+Getopt::Long
+<p></p></ul>
+<p>
+</p>
+<hr />
+<h1><a name="return_values">RETURN VALUES</a></h1>
+<ul>
+<li></li>
+<code>dumpOptions()</code> returns nothing
+<p></p>
+<li></li>
+<code>helpOptions()</code> returns nothing
+<p></p>
+<li></li>
+<code>getOptions()</code> returns 0 for failure and 1 for success
+<p></p></ul>
+<p>
+</p>
+<hr />
+<h1><a name="author">AUTHOR</a></h1>
+<p><code>Getopt::Simple</code> was written by Ron Savage <em>&lt;<a href="mailto:ron@savage.net.au">ron@savage.net.au</a>&gt;</em> in 1997.</p>
+<p>
+</p>
+<hr />
+<h1><a name="licence">LICENCE</a></h1>
+<p>Australian copyright (c) 1997-2002 Ron Savage.</p>
+<pre>
+        All Programs of mine are 'OSI Certified Open Source Software';
+        you can redistribute them and/or modify them under the terms of
+        The Artistic License, a copy of which is available at:
+        <a href="http://www.opensource.org/licenses/index.html">http://www.opensource.org/licenses/index.html</a></pre>
+
+</body>
+
+</html>

@@ -40,7 +40,7 @@ require Exporter;
 @EXPORT_OK	= qw($switch);	# An alias for $self -> {'switch'}.
 
 $fieldWidth	= 25;
-$VERSION	= '1.45';
+$VERSION	= '1.46';
 
 # Preloaded methods go here.
 # --------------------------------------------------------------------------
