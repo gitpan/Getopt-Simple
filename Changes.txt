@@ -1,5 +1,8 @@
 Revision history for Perl extension Getopt::Simple.
 
+1.49  Sat Mar 22 11:31:00 2008
+    - Patch from JJARVINEN for RT#33299 so that an option value of zero overrides the default
+
 1.48  Sun Nov 07 14:30:00 2004
 	- Add sub pad() to simplify printing of fixed width fields.
 		Original patch: Ricardo Signes.

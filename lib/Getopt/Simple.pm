@@ -40,7 +40,7 @@ require Exporter;
 @EXPORT_OK	= qw($switch);	# An alias for $$self{'switch'}.
 
 $fieldWidth	= 25;
-$VERSION	= '1.48';
+$VERSION	= '1.49';
 
 # Preloaded methods go here.
 # --------------------------------------------------------------------------
@@ -110,11 +110,11 @@ sub getOptions
 	{
 		if (ref($$self{'switch'}{$_}) eq 'ARRAY')
 		{
-			$$self{'switch'}{$_} = [split(/\s+/, $$self{'default'}{$_}{'default'})] if (! $$self{'switch'}{$_});
+			$$self{'switch'}{$_} = [split(/\s+/, $$self{'default'}{$_}{'default'})] if (! defined $$self{'switch'}{$_});
 		}
 		else
 		{
-			$$self{'switch'}{$_} = $$self{'default'}{$_}{'default'} if (! $$self{'switch'}{$_});
+			$$self{'switch'}{$_} = $$self{'default'}{$_}{'default'} if (! defined $$self{'switch'}{$_});
 		}
 	}
 
