@@ -1,5 +1,16 @@
 Revision history for Perl extension Getopt::Simple.
 
+1.52  Sun Feb 21 12:55:13 2010
+	- Remove text 'All rights reserved' (for Debian licensing).
+	- Remove POD heads 'Required Modules' and 'Changes'.
+
+1.51  Wed Feb 10 14:02:06 2010
+	- MANIFEST.SKIP updated to exclude MYMETA.yml. Add MYMETA.yml.
+
+1.50  Fri Nov 13 13:20:00 2009
+	- Run dos2unix
+	- Rename Changes.txt to CHANGES
+
 1.49  Sat Mar 22 11:31:00 2008
     - Patch from JJARVINEN for RT#33299 so that an option value of zero overrides the default
 

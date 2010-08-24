@@ -23,7 +23,7 @@ package Getopt::Simple;
 
 use strict;
 no strict 'refs';
-use vars qw($fieldWidth $switch $VERSION @ISA @EXPORT @EXPORT_OK);
+use vars qw($fieldWidth $switch @ISA @EXPORT @EXPORT_OK);
 
 use Getopt::Long;
 
@@ -35,12 +35,13 @@ require Exporter;
 # names by default without a very good reason. Use EXPORT_OK instead.
 # Do not simply export all your public functions/methods/constants.
 
-@EXPORT		= qw();
+@EXPORT      = qw();
 
-@EXPORT_OK	= qw($switch);	# An alias for $$self{'switch'}.
+@EXPORT_OK   = qw($switch);	# An alias for $$self{'switch'}.
 
-$fieldWidth	= 25;
-$VERSION	= '1.49';
+$fieldWidth  = 25;
+
+our $VERSION = '1.52';
 
 # Preloaded methods go here.
 # --------------------------------------------------------------------------
@@ -465,20 +466,6 @@ first space stops the dereference taking place. Outside double quotes the
 scanner correctly associates the $self token with the {'thing'} token.
 
 I regard this as a bug.
-
-=head1 REQUIRED MODULES
-
-=over 4
-
-=item *
-
-Exporter
-
-=item *
-
-Getopt::Long
-
-=back
 
 =head1 AUTHOR
 
